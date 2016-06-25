@@ -13,6 +13,4 @@ RUN tar -xf sp-auth.tgz
 
 COPY docker-entrypoint.sh /
 
-EXPOSE 8908
-
 ENTRYPOINT ["/docker-entrypoint.sh"]
