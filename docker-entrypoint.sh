@@ -18,4 +18,4 @@ url=$1
 external_player_port=$2
 sopcast_port=5000
 
-/app/sp-auth/sp-sc-auth "$url" "$sopcast_port" "$external_player_port"
+/app/sopcast "$url" "$sopcast_port" "$external_player_port"

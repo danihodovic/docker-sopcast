@@ -2,14 +2,18 @@ FROM ubuntu:16.04
 
 MAINTAINER Dani Hodovic
 
-RUN dpkg --add-architecture i386
-RUN apt-get update && apt-get install libstdc++5:i386 curl -y
+# Install the dependencies
+RUN 	dpkg --add-architecture i386 && \
+	apt-get update && \
+	apt-get install libstdc++5:i386 curl -y
 
 RUN mkdir /app
 WORKDIR /app
 
-RUN curl -O http://download.sopcast.com/download/sp-auth.tgz
-RUN tar -xf sp-auth.tgz
+# Install sopcast
+RUN 	curl http://download.sopcast.com/download/sp-auth.tgz | \
+	tar --strip-components 1 -xzf - && \
+	mv /app/sp-sc-auth /app/sopcast
 
 COPY docker-entrypoint.sh /
 
