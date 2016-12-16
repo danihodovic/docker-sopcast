@@ -7,7 +7,6 @@ RUN 	dpkg --add-architecture i386 && \
 	apt-get update && \
 	apt-get install libstdc++5:i386 curl -y
 
-RUN mkdir /app
 WORKDIR /app
 
 # Install sopcast
